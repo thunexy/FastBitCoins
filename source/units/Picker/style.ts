@@ -1,14 +1,17 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../lib/contants/colors';
 
+const {transparent, grey100, grey200} = Colors;
 export const pickerStyles = StyleSheet.create({
   container: {
-    backgroundColor: 'transparent',
-    borderColor: '#CCCCCC',
+    backgroundColor: transparent,
+    borderColor: grey100,
     paddingHorizontal: 26,
     paddingVertical: 20,
+    borderRadius: 4,
   },
   text: {
-    color: '#999999',
+    color: grey200,
     fontSize: 14,
     lineHeight: 18,
   },
