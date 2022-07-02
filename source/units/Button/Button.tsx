@@ -6,14 +6,25 @@ import {buttonStyles} from './style';
 type Props = {
   text: string;
   onPress: () => void;
+  disabled?: boolean;
 };
 
-export const Button: FC<Props & ViewStyle> = ({text, onPress, ...rest}) => {
-  const {primary, primaryText} = buttonStyles;
+export const Button: FC<Props & ViewStyle> = ({
+  text,
+  onPress,
+  disabled = false,
+  ...rest
+}) => {
+  const {primary, disabledStyle, textStyle, button} = buttonStyles;
   return (
-    <Pressable onPress={onPress}>
-      <View style={[primary, rest as ViewStyle]}>
-        <Text color="primaryBlack">{text}</Text>
+    <Pressable onPress={onPress} disabled={disabled}>
+      <View
+        style={[button, disabled ? disabledStyle : primary, rest as ViewStyle]}>
+        <Text
+          {...textStyle}
+          {...{color: disabled ? 'primaryBlack20' : 'primaryBlack'}}>
+          {text}
+        </Text>
       </View>
     </Pressable>
   );

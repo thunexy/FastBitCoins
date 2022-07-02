@@ -1,9 +1,15 @@
 export enum Colors {
   primaryYellow = '#FFB81C',
   primaryBlack = '#101820',
+  primaryBlack10 = '#E7E8E9',
+  primaryBlack20 = '#CFD1D2',
+  primaryBlack30 = '#B7BABC',
   primaryWhite = '#F7F8F7',
   grey100 = '#CCCCCC',
   grey200 = '#999999',
   grey300 = '#C4C4C4',
+  grey400 = '#707070',
+  black = '#000000',
+  white = '#FFFFFF',
   transparent = 'transparent',
 }

@@ -1,6 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
+import CountryScreen from '../screens/CountryScreen';
 import EmailScreen from '../screens/EmailScreen';
 import LanguageScreen from '../screens/LanguageScreen';
 
@@ -14,6 +15,7 @@ const AppNavigator = () => {
         initialRouteName="LanguageScreen">
         <AppStack.Screen name="LanguageScreen" component={LanguageScreen} />
         <AppStack.Screen name="EmailScreen" component={EmailScreen} />
+        <AppStack.Screen name="CountryScreen" component={CountryScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
