@@ -5,6 +5,7 @@ export const inputStyles = StyleSheet.create({
   input: {
     paddingVertical: 18,
     paddingHorizontal: 16,
+    marginBottom: 10,
     borderWidth: 1,
     borderRadius: 5,
     backgroundColor: Colors.white,

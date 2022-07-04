@@ -6,3 +6,5 @@ export * from './Flex';
 export * from './Logo';
 export * from './Input';
 export * from './Box';
+export * from './Modal';
+export * from './Icon';

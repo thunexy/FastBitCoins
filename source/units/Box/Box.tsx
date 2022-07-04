@@ -3,7 +3,7 @@ import {View, ViewStyle} from 'react-native';
 import {boxStyles} from './style';
 
 interface Props {
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export const Box: FC<Props & ViewStyle> = ({children, ...rest}) => {

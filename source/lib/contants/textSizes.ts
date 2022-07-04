@@ -10,6 +10,17 @@ export const TextSizes = {
     lineHeight: 38,
     fontWight: '700',
   },
+  h2: {
+    fontSize: 30,
+  },
+  h3: {
+    fontSize: 21,
+  },
+  h4: {
+    fontSize: 18,
+    lineHeight: 26,
+    fontWight: '600',
+  },
   normal: {
     fontSize: 16,
     lineHeight: 24,

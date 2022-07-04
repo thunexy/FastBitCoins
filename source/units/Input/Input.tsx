@@ -12,7 +12,6 @@ export const Input: FC<Props & ViewStyle> = ({
   placeHolder,
   trackLength = false,
 }) => {
-  console.log(trackLength);
   const {input, active, inActive} = inputStyles;
   return (
     <TextInput

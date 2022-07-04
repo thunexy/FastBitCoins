@@ -4,6 +4,7 @@ import React from 'react';
 import CountryScreen from '../screens/CountryScreen';
 import EmailScreen from '../screens/EmailScreen';
 import LanguageScreen from '../screens/LanguageScreen';
+import VerificationScreen from '../screens/VerificationScreen';
 
 const AppStack = createStackNavigator();
 
@@ -16,6 +17,10 @@ const AppNavigator = () => {
         <AppStack.Screen name="LanguageScreen" component={LanguageScreen} />
         <AppStack.Screen name="EmailScreen" component={EmailScreen} />
         <AppStack.Screen name="CountryScreen" component={CountryScreen} />
+        <AppStack.Screen
+          name="VerificationScreen"
+          component={VerificationScreen}
+        />
       </AppStack.Navigator>
     </NavigationContainer>
   );
