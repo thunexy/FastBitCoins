@@ -1,5 +1,5 @@
 import React from 'react';
-import {CaretRight, Envelope, Tick} from '../../assets/svgs';
+import {CaretRight, Envelope, Tick, Logo, ArrowLeft} from '../../assets/svgs';
 import Search from '../../assets/svgs/Search';
 
 const components = {
@@ -7,6 +7,8 @@ const components = {
   Tick,
   CaretRight,
   Search,
+  ArrowLeft,
+  Logo: Logo,
 };
 
 export interface IconProps {

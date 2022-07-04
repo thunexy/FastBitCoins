@@ -21,7 +21,7 @@ export default function VerificationScreen({navigation}: Prop) {
         </Flex>
         <Button
           text="Cancel"
-          marginTop={35}
+          marginBottom={28}
           onPress={() => navigation.navigate('CountryScreen')}
         />
       </Flex>

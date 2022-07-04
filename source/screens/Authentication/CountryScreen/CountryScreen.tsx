@@ -52,7 +52,7 @@ export default function CountryScreen({navigation}: Prop) {
           <Button
             text="Continue"
             disabled={!country || (country === 'United States' && !state)}
-            marginTop={35}
+            marginBottom={35}
             onPress={() => navigation.navigate('VerificationScreen')}
           />
         </Flex>

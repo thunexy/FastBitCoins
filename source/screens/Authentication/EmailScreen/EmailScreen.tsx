@@ -19,7 +19,7 @@ export default function EmailScreen({navigation}: Prop) {
         />
         <Button
           text="Continue"
-          marginTop={35}
+          marginBottom={28}
           disabled={!email}
           onPress={() => navigation.navigate('CountryScreen')}
         />

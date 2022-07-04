@@ -1,5 +1,5 @@
 import React, {FC, ReactNode} from 'react';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {View} from 'react-native';
 import {Colors} from '../../lib/contants/colors';
 import {screenWrapperStyles} from './style';
 
@@ -10,9 +10,9 @@ interface Props {
 
 export const ScreenWrapper: FC<Props> = ({children, bg = 'primaryWhite'}) => {
   return (
-    <SafeAreaView
+    <View
       style={[screenWrapperStyles.container, {backgroundColor: Colors[bg]}]}>
       {children}
-    </SafeAreaView>
+    </View>
   );
 };
