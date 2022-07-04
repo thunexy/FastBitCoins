@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from '../../lib/contants/colors';
+import {fontFamily} from '../../lib/contants/textSizes';
 
 export const style = StyleSheet.create({
   image: {
@@ -7,14 +8,17 @@ export const style = StyleSheet.create({
     height: 24,
     borderRadius: 12,
   },
-  header: {
-    marginBottom: 10,
-  },
   wrapper: {
     flexDirection: 'row',
     alignItems: 'center',
     borderBottomColor: Colors.primaryBlack10,
     borderBottomWidth: 1,
     paddingVertical: 16,
+  },
+  header: {
+    marginBottom: 18,
+    lineHeight: 32,
+    fontWeight: '600',
+    fontFamily: fontFamily.poppinsSemiBold,
   },
 });

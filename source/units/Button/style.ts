@@ -13,9 +13,4 @@ export const buttonStyles = StyleSheet.create({
   disabledStyle: {
     backgroundColor: Colors.primaryBlack10,
   },
-  textStyle: {
-    fontSize: 16,
-    lineHeight: 28,
-    fontWeight: '700',
-  },
 });

@@ -13,7 +13,7 @@ export default function VerificationScreen({navigation}: Prop) {
           <Text marginTop={32} size={'h2'} lineHeight={42}>
             Verify your email
           </Text>
-          <Text marginTop={24} size="h3" lineHeight={32}>
+          <Text marginTop={24} size="big" color="grey400">
             Please check your emails
           </Text>
         </Flex>

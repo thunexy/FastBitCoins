@@ -15,13 +15,13 @@ export const Button: FC<Props & ViewStyle> = ({
   disabled = false,
   ...rest
 }) => {
-  const {primary, disabledStyle, textStyle, button} = buttonStyles;
+  const {primary, disabledStyle, button} = buttonStyles;
   return (
     <Pressable onPress={onPress} disabled={disabled}>
       <View
         style={[button, disabled ? disabledStyle : primary, rest as ViewStyle]}>
         <Text
-          {...textStyle}
+          size="body"
           {...{color: disabled ? 'primaryBlack20' : 'primaryBlack'}}>
           {text}
         </Text>

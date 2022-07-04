@@ -15,10 +15,10 @@ export const LabelledInput: FC<Props & ViewStyle> = ({
   trackLength = false,
   ...rest
 }) => {
-  const {container, text} = style;
+  const {container} = style;
   return (
     <View style={[container, rest as ViewStyle]}>
-      <Text {...text} color="grey400" size="normal">
+      <Text marginBottom={8} color="grey400" size="normal">
         {label}
       </Text>
       <Input placeHolder={placeHolder} trackLength={trackLength} />

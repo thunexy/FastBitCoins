@@ -1,5 +1,6 @@
 import {StyleSheet} from 'react-native';
 import {Colors} from '../../lib/contants/colors';
+import {fontFamily} from '../../lib/contants/textSizes';
 
 const {transparent, grey100, grey200} = Colors;
 export const pickerStyles = StyleSheet.create({
@@ -14,5 +15,6 @@ export const pickerStyles = StyleSheet.create({
     color: grey200,
     fontSize: 14,
     lineHeight: 18,
+    fontFamily: fontFamily.poppinsRegular,
   },
 });
