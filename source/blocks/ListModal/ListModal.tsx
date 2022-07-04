@@ -1,4 +1,5 @@
 import React from 'react';
+import {useEffect} from 'react';
 import {FlatList, Image, Pressable, ScrollView, View} from 'react-native';
 import {ModalProps} from 'react-native-modal';
 import {useImmer} from 'use-immer';
@@ -23,15 +24,27 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
   ...rest
 }) => {
   const {wrapper, image, header, textWithImage, text} = style;
-  const [listData, setListData] = useImmer(data);
-  const [searchText, setSearchText] = useImmer('');
+  const [state, setState] = useImmer({
+    listData: data,
+    searchText: '',
+  });
   const handleSearch = text => {
-    setSearchText(text);
     const filteredData = data.filter(item =>
       item[id.text].toLowerCase().includes(text.toLowerCase()),
     );
-    setListData(filteredData);
+    setState(draft => {
+      draft.searchText = text;
+      draft.listData = filteredData;
+    });
   };
+  useEffect(() => {
+    if (rest.isVisible) {
+      setState(draft => {
+        draft.searchText = '';
+        draft.listData = data;
+      });
+    }
+  }, [rest.isVisible]);
   return (
     <Modal {...(rest as Omit<ModalProps, 'children'>)}>
       <Text align="center" color="black" size="h3" style={header}>
@@ -39,7 +52,7 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
       </Text>
       <Input
         placeHolder="Search"
-        value={searchText}
+        value={state.searchText}
         onChangeText={handleSearch}
         leftIcon="Search"
       />
@@ -47,17 +60,12 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
         <ScrollView showsVerticalScrollIndicator={false}>
           <View onStartShouldSetResponder={() => true}>
             <FlatList
-              data={listData}
+              data={state.listData}
               scrollEnabled={false}
               keyExtractor={(_, index) => `${index}`}
               renderItem={({item}) => {
                 return (
-                  <Pressable
-                    onPress={() => {
-                      setSearchText('');
-                      setListData(data);
-                      handleSelection(item[id.text]);
-                    }}>
+                  <Pressable onPress={() => handleSelection(item[id.text])}>
                     <Box {...wrapper}>
                       {hasImage ? (
                         <Image
