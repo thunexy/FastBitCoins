@@ -1,10 +1,12 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import CountryScreen from '../screens/CountryScreen';
-import EmailScreen from '../screens/EmailScreen';
-import LanguageScreen from '../screens/LanguageScreen';
-import VerificationScreen from '../screens/VerificationScreen';
+import {
+  CountryScreen,
+  EmailScreen,
+  LanguageScreen,
+  VerificationScreen,
+} from '../screens/Authentication';
 
 const AppStack = createStackNavigator();
 

@@ -4,7 +4,7 @@ import {fontFamily} from '../../lib/contants/textSizes';
 
 export const inputStyles = StyleSheet.create({
   input: {
-    paddingVertical: 18,
+    paddingVertical: 17,
     paddingHorizontal: 16,
     marginBottom: 10,
     borderWidth: 1,
@@ -26,5 +26,17 @@ export const inputStyles = StyleSheet.create({
     shadowOffset: {width: 4, height: 4},
     shadowOpacity: 0.25,
     shadowRadius: 4,
+  },
+  rightIconStyle: {
+    position: 'absolute',
+    right: 15,
+    top: 20,
+    zIndex: 1,
+  },
+  leftIconStyle: {
+    position: 'absolute',
+    left: 15,
+    top: 20,
+    zIndex: 1,
   },
 });

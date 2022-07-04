@@ -1,16 +1,19 @@
 import React from 'react';
-import {Envelope, Tick} from '../../assets/svgs';
+import {CaretRight, Envelope, Tick} from '../../assets/svgs';
+import Search from '../../assets/svgs/Search';
 
 const components = {
-  envelope: Envelope,
-  tick: Tick,
+  Envelope,
+  Tick,
+  CaretRight,
+  Search,
 };
 
-interface Props {
+export interface IconProps {
   name: keyof typeof components;
 }
 
-export const Icon: React.FC<Props> = ({name, ...rest}) => {
+export const Icon: React.FC<IconProps> = ({name, ...rest}) => {
   const TagName: React.FC = components[name];
 
   if (TagName) {

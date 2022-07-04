@@ -1,27 +1,34 @@
 import React, {FC} from 'react';
-import {View, ViewStyle} from 'react-native';
-import {Input, Text} from '../../units';
+import {TextInputProps} from 'react-native';
+import {Colors} from '../../lib/contants/colors';
+import {Box, IconProps, Input, Text} from '../../units';
 import {style} from './style';
 
 type Props = {
   label: string;
   placeHolder: string;
   trackLength?: boolean;
+  handleInput?: (value: string) => void;
+  rightIcon?: IconProps['name'];
 };
 
-export const LabelledInput: FC<Props & ViewStyle> = ({
+export const LabelledInput: FC<Props & TextInputProps> = ({
   label,
   placeHolder,
   trackLength = false,
   ...rest
 }) => {
-  const {container} = style;
   return (
-    <View style={[container, rest as ViewStyle]}>
-      <Text marginBottom={8} color="grey400" size="normal">
+    <Box>
+      <Text style={style.label} color="grey400" size="normal">
         {label}
       </Text>
-      <Input placeHolder={placeHolder} trackLength={trackLength} />
-    </View>
+      <Input
+        placeHolder={placeHolder}
+        placeholderTextColor={Colors.primaryBlack30}
+        trackLength={trackLength}
+        {...rest}
+      />
+    </Box>
   );
 };

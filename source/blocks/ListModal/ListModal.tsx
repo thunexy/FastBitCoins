@@ -1,54 +1,80 @@
 import React from 'react';
-import {FlatList, Image, ScrollView, View} from 'react-native';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import {fontFamily} from '../../lib/contants/textSizes';
+import {FlatList, Image, Pressable, ScrollView, View} from 'react-native';
+import {ModalProps} from 'react-native-modal';
+import {useImmer} from 'use-immer';
 import {Box, Input, Modal, Text} from '../../units';
 import {style} from './style';
 
 type Input = Record<string, string>;
-interface ModalProps {
+interface Props {
   data: Input[];
   id: Input;
   headerText: string;
   hasImage?: boolean;
   isVisible: boolean;
-  hideModal: () => void;
+  handleSelection: (value: string) => void;
 }
-export const ListModal: React.FC<ModalProps> = ({
+export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
   data,
   hasImage = false,
   id,
-  isVisible,
   headerText,
+  handleSelection,
+  ...rest
 }) => {
-  const {wrapper, image, header} = style;
+  const {wrapper, image, header, textWithImage, text} = style;
+  const [listData, setListData] = useImmer(data);
+  const [searchText, setSearchText] = useImmer('');
+  const handleSearch = text => {
+    setSearchText(text);
+    const filteredData = data.filter(item =>
+      item[id.text].toLowerCase().includes(text.toLowerCase()),
+    );
+    setListData(filteredData);
+  };
   return (
-    <Modal isVisible={isVisible} hideModal={() => {}}>
-      <Text align="center" color="black" size="h3" {...header}>
+    <Modal {...(rest as Omit<ModalProps, 'children'>)}>
+      <Text align="center" color="black" size="h3" style={header}>
         {headerText}
       </Text>
-      <Input placeHolder="Search" />
+      <Input
+        placeHolder="Search"
+        value={searchText}
+        onChangeText={handleSearch}
+        leftIcon="Search"
+      />
       <Box marginTop={10} flex={1}>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View onStartShouldSetResponder={() => true}>
             <FlatList
-              data={data}
+              data={listData}
               scrollEnabled={false}
               keyExtractor={(_, index) => `${index}`}
               renderItem={({item}) => {
                 return (
-                  <Box {...wrapper}>
-                    {hasImage ? (
-                      <Image style={image} source={{uri: item[id.imageUrl]}} />
-                    ) : null}
-                    <Text
-                      size="h4"
-                      lineHeight={30}
-                      marginLeft={hasImage ? 12 : 0}
-                      color="primaryBlack">
-                      {item[id.text]}
-                    </Text>
-                  </Box>
+                  <Pressable
+                    onPress={() => {
+                      setSearchText('');
+                      setListData(data);
+                      handleSelection(item[id.text]);
+                    }}>
+                    <Box {...wrapper}>
+                      {hasImage ? (
+                        <Image
+                          style={image}
+                          source={{uri: item[id.imageUrl]}}
+                        />
+                      ) : null}
+                      <Text
+                        size="h4"
+                        numberOfLines={1}
+                        ellipsizeMode="tail"
+                        style={hasImage ? textWithImage : text}
+                        color="primaryBlack">
+                        {item[id.text]}
+                      </Text>
+                    </Box>
+                  </Pressable>
                 );
               }}
             />

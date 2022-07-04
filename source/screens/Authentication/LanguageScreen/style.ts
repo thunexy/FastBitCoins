@@ -1,8 +1,8 @@
 import {StyleSheet} from 'react-native';
 
 export const style = StyleSheet.create({
-  container: {},
-  label: {
-    marginBottom: 8,
+  instruction: {
+    marginTop: 88,
+    marginBottom: 52,
   },
 });

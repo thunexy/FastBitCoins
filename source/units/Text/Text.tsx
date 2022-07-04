@@ -1,5 +1,5 @@
 import React, {FC, ReactNode} from 'react';
-import {Text as RNText, TextStyle} from 'react-native';
+import {Text as RNText, TextProps, TextStyle} from 'react-native';
 import {Colors} from '../../lib/contants/colors';
 import {TextSizes, Variant} from '../../lib/contants/textSizes';
 import {textStyles} from './style';
@@ -11,19 +11,21 @@ interface Props {
   align?: 'center' | 'left' | 'right';
 }
 
-export const Text: FC<Props & TextStyle> = ({
+export const Text: FC<Props & TextProps> = ({
   children,
   color = 'primaryBlack',
   size = 'body',
   align = 'left',
+  style,
   ...rest
 }) => {
   const {text} = textStyles;
   return (
     <RNText
+      {...(rest as TextProps)}
       style={[
-        rest as TextStyle,
         text,
+        style,
         {color: Colors[color], ...TextSizes[size], textAlign: align},
       ]}>
       {children}

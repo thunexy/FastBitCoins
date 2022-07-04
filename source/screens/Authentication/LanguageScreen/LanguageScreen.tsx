@@ -1,10 +1,15 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Button, Flex, Logo, Picker, ScreenWrapper, Text} from '../units';
+import {useImmer} from 'use-immer';
+import {languages} from '../../../lib/contants/languages';
+import {Button, Flex, Logo, Picker, ScreenWrapper, Text} from '../../../units';
+import {style} from './style';
 interface Prop {
   navigation: StackNavigationProp<{EmailScreen: undefined}>;
 }
 export default function LanguageScreen({navigation}: Prop) {
+  const [language, setLanguage] = useImmer(languages[0].value);
+  const {instruction} = style;
   const handleNavigation = () => {
     navigation.navigate('EmailScreen');
   };
@@ -16,18 +21,10 @@ export default function LanguageScreen({navigation}: Prop) {
           color="primaryYellow"
           size="h1"
           align="center"
-          marginBottom={52}
-          marginTop={88}>
+          style={instruction}>
           Select your Language
         </Text>
-        <Picker
-          data={[
-            {
-              label: 'English',
-              value: 'english',
-            },
-          ]}
-        />
+        <Picker data={languages} value={language} setValue={setLanguage} />
         <Button text="Continue" marginTop={35} onPress={handleNavigation} />
       </Flex>
     </ScreenWrapper>

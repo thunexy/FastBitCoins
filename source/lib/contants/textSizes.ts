@@ -3,6 +3,7 @@ export type TextSize = {
     fontSize: number;
     lineHeight: number;
     fontWeight: '400' | '600' | '700';
+    fontFamily: string;
   };
 };
 export const fontFamily = {

@@ -1,5 +1,6 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import DropDownPicker from 'react-native-dropdown-picker';
+import {useImmer} from 'use-immer';
 import {pickerStyles} from './style';
 
 type Data = {
@@ -8,12 +9,13 @@ type Data = {
 };
 interface Props {
   data: Data[];
+  value: string;
+  setValue: any;
 }
 
-export const Picker: FC<Props> = ({data}) => {
-  const [open, setOpen] = useState(false);
-  const [value, setValue] = useState('english');
-  const [items, setItems] = useState<Data[]>(data);
+export const Picker: FC<Props> = ({data, value, setValue}) => {
+  const [open, setOpen] = useImmer(false);
+  const [items, setItems] = useImmer(data);
   return (
     <DropDownPicker
       open={open}

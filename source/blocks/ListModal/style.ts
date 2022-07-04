@@ -21,4 +21,6 @@ export const style = StyleSheet.create({
     fontWeight: '600',
     fontFamily: fontFamily.poppinsSemiBold,
   },
+  textWithImage: {lineHeight: 30, marginLeft: 12, flex: 1},
+  text: {lineHeight: 30, marginLeft: 0, flex: 1},
 });
