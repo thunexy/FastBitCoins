@@ -3,7 +3,7 @@
 Clone the repository and open the terminal at the directory then run:
 
 ```console
-  cd FastBitCoins && yarn install
+  cd FastBitCoins && yarn
 ```
 
 to install dependencies.
