@@ -40,3 +40,13 @@ to run build on an iOS device
 ## Technical Decisions
 
 - Re-usable components were created following the atomic design. Example is **Text** which was evident in several part of the screens with only colour and sizes changing.
+
+## Some Screenshots
+
+![Alt text](/readme-images/s1.png?raw=true ' ')
+![Alt text](/readme-images/s2.png?raw=true ' ')
+![Alt text](/readme-images/s3.png?raw=true ' ')
+![Alt text](/readme-images/s4.png?raw=true ' ')
+![Alt text](/readme-images/s5.png?raw=true ' ')
+![Alt text](/readme-images/s6.png?raw=true ' ')
+![Alt text](/readme-images/s7.png?raw=true ' ')
