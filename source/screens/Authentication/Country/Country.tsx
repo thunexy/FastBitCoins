@@ -1,6 +1,6 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {Pressable} from 'react-native';
+import {Alert, Pressable} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useImmer} from 'use-immer';
 import {LabelledInput, ListModal} from '../../../blocks';
@@ -46,7 +46,7 @@ export default function CountryScreen({navigation}: Prop) {
         navigation.navigate('VerificationScreen');
       },
       error => {
-        console.log(error.message);
+        Alert.alert('Error', error.message);
       },
     );
   };

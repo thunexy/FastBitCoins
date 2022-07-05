@@ -1,6 +1,6 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {StatusBar} from 'react-native';
+import {Alert, StatusBar} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useImmer} from 'use-immer';
 import {LabelledInput} from '../../../blocks';
@@ -35,8 +35,7 @@ export default function EmailScreen({navigation}: Prop) {
         }
       },
       error => {
-        console.log(error);
-        // Alert.alert('Error', error.message);
+        Alert.alert('Error', error.message);
       },
     );
   };

@@ -7,6 +7,7 @@ import {createUser, logoutUser} from '../../../redux/actions/authActions';
 import Toast from 'react-native-toast-message';
 import {Button, Flex, Icon, ScreenWrapper, Text} from '../../../units';
 import {style} from './style';
+import {Alert} from 'react-native';
 interface Prop {
   navigation: StackNavigationProp<{
     CountryScreen: undefined;
@@ -33,7 +34,7 @@ export default function VerificationScreen({navigation}: Prop) {
         }
       },
       error => {
-        console.log(error.message);
+        Alert.alert('Error', error.message);
       },
     );
   };
