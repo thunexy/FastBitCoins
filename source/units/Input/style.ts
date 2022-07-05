@@ -13,7 +13,6 @@ export const inputStyles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 26,
     fontFamily: fontFamily.poppinsRegular,
-    fontWeight: '400',
     color: Colors.grey400,
   },
   active: {

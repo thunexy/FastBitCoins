@@ -17,6 +17,7 @@ const AppStack = createStackNavigator();
 const getScreenOptions = (navigation, title) => {
   return {
     title,
+    headerTileAlign: 'center',
     headerLeft: () => (
       <Pressable onPress={navigation.goBack}>
         <Icon name="ArrowLeft" />
@@ -24,16 +25,17 @@ const getScreenOptions = (navigation, title) => {
     ),
     headerRight: () => <Icon name="Logo" />,
     headerLeftContainerStyle: {
-      paddingHorizontal: 24,
+      paddingLeft: 24,
     },
     headerRightContainerStyle: {
-      paddingHorizontal: 24,
+      paddingRight: 24,
     },
     headerStyle: {
       backgroundColor: Colors.primaryWhite,
       elevation: 0,
       shadowOpacity: 0,
     },
+    headerTitleAlign: 'center',
     headerTitleStyle: {
       fontFamily: fontFamily.poppinsSemiBold,
       color: Colors.primaryBlack,

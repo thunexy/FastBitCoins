@@ -3,7 +3,8 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useImmer} from 'use-immer';
 import {monitorLogin} from '../../../lib/api/api';
-import {createUser} from '../../../redux/actions/authActions';
+import {createUser, logoutUser} from '../../../redux/actions/authActions';
+import Toast from 'react-native-toast-message';
 import {Button, Flex, Icon, ScreenWrapper, Text} from '../../../units';
 import {style} from './style';
 interface Prop {
@@ -43,6 +44,10 @@ export default function VerificationScreen({navigation}: Prop) {
   const stopInterval = () => {
     clearInterval(interval);
   };
+  const cancelAuthentication = () => {
+    dispatch(logoutUser());
+    navigation.navigate('LanguageScreen');
+  };
 
   useEffect(() => {
     startInterval();
@@ -63,11 +68,7 @@ export default function VerificationScreen({navigation}: Prop) {
               : 'Please wait while we redirect you...'}
           </Text>
         </Flex>
-        <Button
-          text="Cancel"
-          type="secondary"
-          onPress={() => navigation.navigate('LanguageScreen')}
-        />
+        <Button text="Cancel" type="secondary" onPress={cancelAuthentication} />
       </Flex>
     </ScreenWrapper>
   );

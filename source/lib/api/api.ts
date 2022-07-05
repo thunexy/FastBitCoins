@@ -27,7 +27,12 @@ export function signIn(
     method: 'POST',
     body: JSON.stringify(data),
   })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Something went wrong');
+    })
     .then(onSuccess)
     .catch(onError);
 }
@@ -38,7 +43,12 @@ export function monitorLogin(
   onError: (error: Error) => void,
 ) {
   fetch(APP_URL.monitor + session_key)
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Something went wrong');
+    })
     .then(onSuccess)
     .catch(onError);
 }
@@ -52,7 +62,12 @@ export function signUp(
     method: 'POST',
     body: JSON.stringify(data),
   })
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error('Something went wrong');
+    })
     .then(onSuccess)
     .catch(onError);
 }

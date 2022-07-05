@@ -4,6 +4,7 @@ import {
   SAVE_EMAIL,
   SAVE_LANGUAGE,
   SAVE_LOCATION,
+  LOGOUT,
 } from './types';
 export function loginUser(payload) {
   return {
@@ -33,5 +34,11 @@ export function createUser(payload) {
   return {
     type: CREATE_USER,
     payload,
+  };
+}
+
+export function logoutUser() {
+  return {
+    type: LOGOUT,
   };
 }

@@ -5,6 +5,7 @@ import {
   SAVE_EMAIL,
   SAVE_LANGUAGE,
   SAVE_LOCATION,
+  LOGOUT,
 } from '../actions/types';
 const initialState = {
   platform: Platform.OS === 'android' ? '2' : '3',
@@ -15,7 +16,7 @@ const authReducer = (state = initialState, action) => {
     case LOGIN:
       return {
         ...state,
-        user: action.payload,
+        ...action.payload,
       };
     case SAVE_LANGUAGE:
       return {
@@ -38,6 +39,8 @@ const authReducer = (state = initialState, action) => {
         ...action.payload,
         isVerified: false,
       };
+    case LOGOUT:
+      return initialState;
     default:
       return state;
   }

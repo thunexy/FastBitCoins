@@ -8,8 +8,7 @@
  * @format
  */
 
-import React from 'react';
-import {useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {useSelector} from 'react-redux';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import SplashScreen from 'react-native-splash-screen';
@@ -23,7 +22,7 @@ const App = () => {
   }, []);
   return (
     <SafeAreaProvider>
-      {auth.session_key ? <HomeNavigator /> : <AppNavigator />}
+      {auth.secret ? <HomeNavigator /> : <AppNavigator />}
     </SafeAreaProvider>
   );
 };

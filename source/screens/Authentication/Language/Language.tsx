@@ -1,7 +1,10 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
+import {useEffect} from 'react';
+import {StatusBar} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useImmer} from 'use-immer';
+import {Colors} from '../../../lib/contants/colors';
 import {languages} from '../../../lib/contants/languages';
 import {saveLanguage} from '../../../redux/actions/authActions';
 import {Button, Flex, Logo, Picker, ScreenWrapper, Text} from '../../../units';
@@ -20,6 +23,10 @@ export default function LanguageScreen({navigation}: Prop) {
   };
   return (
     <ScreenWrapper bg="primaryBlack">
+      <StatusBar
+        backgroundColor={Colors.primaryBlack}
+        barStyle="dark-content"
+      />
       <Flex justifyContent="center">
         <Logo />
         <Text

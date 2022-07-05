@@ -58,10 +58,13 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
         trackLength
       />
       <Box marginTop={10} flex={1}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled">
           <View onStartShouldSetResponder={() => true}>
             <FlatList
               data={state.listData}
+              keyboardShouldPersistTaps="handled"
               scrollEnabled={false}
               keyExtractor={(_, index) => `${index}`}
               renderItem={({item, index}) => {

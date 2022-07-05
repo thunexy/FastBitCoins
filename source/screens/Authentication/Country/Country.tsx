@@ -1,12 +1,12 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
+import {Pressable} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {useImmer} from 'use-immer';
 import {LabelledInput, ListModal} from '../../../blocks';
 import {signUp} from '../../../lib/api/api';
 import {countries} from '../../../lib/contants/countries';
 import {states} from '../../../lib/contants/states';
-import {APP_URL} from '../../../lib/urls/urls';
 import {createUser, saveLocation} from '../../../redux/actions/authActions';
 import {Box, Button, Flex, ScreenWrapper, Text} from '../../../units';
 import {style} from './style';
@@ -88,25 +88,28 @@ export default function CountryScreen({navigation}: Prop) {
               Bacon ipsum dolor amet kielbasa filet mignon biltong hamburger
               tri-tip sirloin.
             </Text>
-            <LabelledInput
-              placeHolder="Select country"
-              label="What country do you live in?"
-              editable={false}
-              trackLength={!!country}
-              value={country}
-              rightIcon={!country ? 'CaretRight' : undefined}
-              onPressIn={toggleCountryModal}
-            />
-            {country === 'United States' && (
+            <Pressable onPress={toggleCountryModal}>
               <LabelledInput
-                placeHolder="Select state"
-                label="Which state do you live in?"
-                trackLength={!!state}
+                placeHolder="Select country"
+                label="What country do you live in?"
+                trackLength={!!country}
+                value={country}
                 editable={false}
-                value={state}
-                rightIcon={!state ? 'CaretRight' : undefined}
-                onPressIn={toggleStateModal}
+                rightIcon={!country ? 'CaretRight' : undefined}
+                pointerEvents="none"
               />
+            </Pressable>
+            {country === 'United States' && (
+              <Pressable onPress={toggleCountryModal}>
+                <LabelledInput
+                  placeHolder="Select state"
+                  label="Which state do you live in?"
+                  trackLength={!!state}
+                  value={state}
+                  rightIcon={!state ? 'CaretRight' : undefined}
+                  onFocus={toggleStateModal}
+                />
+              </Pressable>
             )}
           </Box>
           <Button

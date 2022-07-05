@@ -18,7 +18,6 @@ export const style = StyleSheet.create({
   header: {
     marginBottom: 18,
     lineHeight: 32,
-    fontWeight: '600',
     fontFamily: fontFamily.poppinsSemiBold,
   },
   textWithImage: {lineHeight: 30, marginLeft: 12, flex: 1},
