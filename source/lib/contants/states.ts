@@ -8,10 +8,6 @@ export const states = [
     code: 'AK',
   },
   {
-    name: 'American Samoa',
-    code: 'AS',
-  },
-  {
     name: 'Arizona',
     code: 'AZ',
   },

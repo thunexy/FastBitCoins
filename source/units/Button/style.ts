@@ -7,8 +7,11 @@ export const buttonStyles = StyleSheet.create({
     borderRadius: 5,
     alignItems: 'center',
   },
-  primary: {
+  primaryStyle: {
     backgroundColor: Colors.primaryYellow,
+  },
+  secondaryStyle: {
+    backgroundColor: Colors.transparent,
   },
   disabledStyle: {
     backgroundColor: Colors.primaryBlack10,

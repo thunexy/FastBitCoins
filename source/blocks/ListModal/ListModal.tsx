@@ -13,7 +13,7 @@ interface Props {
   headerText: string;
   hasImage?: boolean;
   isVisible: boolean;
-  handleSelection: (value: string) => void;
+  handleSelection: (value: number) => void;
 }
 export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
   data,
@@ -55,6 +55,7 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
         value={state.searchText}
         onChangeText={handleSearch}
         leftIcon="Search"
+        trackLength
       />
       <Box marginTop={10} flex={1}>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -63,9 +64,15 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
               data={state.listData}
               scrollEnabled={false}
               keyExtractor={(_, index) => `${index}`}
-              renderItem={({item}) => {
+              renderItem={({item, index}) => {
                 return (
-                  <Pressable onPress={() => handleSelection(item[id.text])}>
+                  <Pressable
+                    onPress={() => {
+                      const i = data.findIndex(
+                        obj => obj[id.text] === item[id.text],
+                      );
+                      handleSelection(i);
+                    }}>
                     <Box {...wrapper}>
                       {hasImage ? (
                         <Image

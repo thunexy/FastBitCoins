@@ -7,22 +7,35 @@ type Props = {
   text: string;
   onPress: () => void;
   disabled?: boolean;
+  type?: 'primary' | 'secondary';
 };
 
 export const Button: FC<Props & ViewStyle> = ({
   text,
   onPress,
   disabled = false,
+  type = 'primary',
   ...rest
 }) => {
-  const {primary, disabledStyle, button} = buttonStyles;
+  const {primaryStyle, secondaryStyle, disabledStyle, button} = buttonStyles;
+  const isPrimary = type === 'primary';
   return (
     <Pressable onPress={onPress} disabled={disabled}>
       <View
-        style={[button, disabled ? disabledStyle : primary, rest as ViewStyle]}>
+        style={[
+          button,
+          disabled ? disabledStyle : isPrimary ? primaryStyle : secondaryStyle,
+          rest as ViewStyle,
+        ]}>
         <Text
           size="body"
-          {...{color: disabled ? 'primaryBlack20' : 'primaryBlack'}}>
+          {...{
+            color: disabled
+              ? 'primaryBlack20'
+              : isPrimary
+              ? 'primaryBlack'
+              : 'primaryYellow',
+          }}>
           {text}
         </Text>
       </View>

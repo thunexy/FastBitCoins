@@ -12,7 +12,7 @@ export const style = StyleSheet.create({
     borderTopLeftRadius: 18,
     borderTopRightRadius: 18,
     width: '100%',
-    height: '90%',
+    height: '89%',
   },
   dragWrapper: {
     alignItems: 'center',

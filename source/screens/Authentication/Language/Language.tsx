@@ -1,7 +1,9 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useImmer} from 'use-immer';
 import {languages} from '../../../lib/contants/languages';
+import {saveLanguage} from '../../../redux/actions/authActions';
 import {Button, Flex, Logo, Picker, ScreenWrapper, Text} from '../../../units';
 import {style} from './style';
 interface Prop {
@@ -9,8 +11,11 @@ interface Prop {
 }
 export default function LanguageScreen({navigation}: Prop) {
   const [language, setLanguage] = useImmer(languages[0].value);
+  const dispatch = useDispatch();
+  const {auth} = useSelector(state => state);
   const {instruction} = style;
   const handleNavigation = () => {
+    dispatch(saveLanguage(language));
     navigation.navigate('EmailScreen');
   };
   return (
