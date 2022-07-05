@@ -100,14 +100,15 @@ export default function CountryScreen({navigation}: Prop) {
               />
             </Pressable>
             {country === 'United States' && (
-              <Pressable onPress={toggleCountryModal}>
+              <Pressable onPress={toggleStateModal}>
                 <LabelledInput
                   placeHolder="Select state"
                   label="Which state do you live in?"
                   trackLength={!!state}
+                  editable={false}
+                  pointerEvents="none"
                   value={state}
                   rightIcon={!state ? 'CaretRight' : undefined}
-                  onFocus={toggleStateModal}
                 />
               </Pressable>
             )}

@@ -1,6 +1,13 @@
 import React from 'react';
 import {useEffect} from 'react';
-import {FlatList, Image, Pressable, ScrollView, View} from 'react-native';
+import {
+  FlatList,
+  Image,
+  LogBox,
+  Pressable,
+  ScrollView,
+  View,
+} from 'react-native';
 import {ModalProps} from 'react-native-modal';
 import {useImmer} from 'use-immer';
 import {Box, Input, Modal, Text} from '../../units';
@@ -23,6 +30,7 @@ export const ListModal: React.FC<Props & Partial<ModalProps>> = ({
   handleSelection,
   ...rest
 }) => {
+  LogBox.ignoreAllLogs();
   const {wrapper, image, header, textWithImage, text} = style;
   const [state, setState] = useImmer({
     listData: data,
