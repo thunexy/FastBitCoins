@@ -69,7 +69,13 @@ export default function VerificationScreen({navigation}: Prop) {
               : 'Please wait while we redirect you...'}
           </Text>
         </Flex>
-        <Button text="Cancel" type="secondary" onPress={cancelAuthentication} />
+        {!isLoggedIn ? (
+          <Button
+            text="Cancel"
+            type="secondary"
+            onPress={cancelAuthentication}
+          />
+        ) : null}
       </Flex>
     </ScreenWrapper>
   );
