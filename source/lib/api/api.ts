@@ -58,7 +58,6 @@ export function signUp(
   onSuccess: (result: MonitorSessionSecret) => void,
   onError: (error: Error) => void,
 ) {
-  console.log('aaa');
   fetch(APP_URL.createUser, {
     method: 'POST',
     body: JSON.stringify(data),
