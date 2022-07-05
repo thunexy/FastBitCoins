@@ -42,12 +42,10 @@ export default function CountryScreen({navigation}: Prop) {
         country: countries[countryIndex!].code,
       },
       result => {
-        console.log('ve');
         dispatch(createUser(result));
         navigation.navigate('VerificationScreen');
       },
       error => {
-        console.log('error');
         Alert.alert('Error', error.message);
       },
     );
