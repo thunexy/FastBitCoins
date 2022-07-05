@@ -38,14 +38,16 @@ export default function CountryScreen({navigation}: Prop) {
     signUp(
       {
         ...auth,
-        state: states[stateIndex!].code,
+        state: state ? states[stateIndex!].code : '',
         country: countries[countryIndex!].code,
       },
       result => {
+        console.log('ve');
         dispatch(createUser(result));
         navigation.navigate('VerificationScreen');
       },
       error => {
+        console.log('error');
         Alert.alert('Error', error.message);
       },
     );
